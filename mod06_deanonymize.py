@@ -26,6 +26,7 @@ def link_records(anon_df, aux_df):
     unique_ids = counts[counts['name'] == 1]['anon_id']
 
     unique_matches = merged[merged['anon_id'].isin(unique_ids)][['anon_id', 'name']]
+    unique_matches = unique_matches.rename(columns={'name': 'matched_name'})
 
     return unique_matches
 
